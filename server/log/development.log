@@ -1525,3 +1525,248 @@ Processing by GraphqlController#execute as */*
 Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 6416)
 
 
+Started GET "/cable" for ::1 at 2020-07-25 17:58:49 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:58:49 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/cable" for ::1 at 2020-07-25 18:00:38 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:00:38 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:00:38 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 8821)
+
+
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2020-07-25 18:01:40 -0400
+Started GET "/cable" for ::1 at 2020-07-25 18:01:40 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:01:40 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:01:40 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1812)
+
+
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2020-07-25 18:01:43 -0400
+Started GET "/cable" for ::1 at 2020-07-25 18:01:44 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:01:44 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:01:44 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1814)
+
+
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started POST "/graphql" for ::1 at 2020-07-25 18:01:48 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update"}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_post.rb:10:in `resolve'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "asfsaddfads"], ["body", "asdfs"], ["updated_at", "2020-07-25 22:01:48.685720"], ["id", 2]]
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+[ActionCable] Broadcasting to graphql-event::postUpdated:id:2: "{\"__gid__\":\"Z2lkOi8vcmFpbHMtZ3JhcGhxbC1jcnVkLWV4YW1wbGUvUG9zdC8y\"}"
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 13.5ms | Allocations: 9732)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2020-07-25 18:02:06 -0400
+Started GET "/cable" for ::1 at 2020-07-25 18:02:06 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:02:06 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:02:06 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1812)
+
+
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2020-07-25 18:02:38 -0400
+Started GET "/cable" for ::1 at 2020-07-25 18:02:38 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:02:38 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:02:38 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1784)
+
+
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2020-07-25 18:02:43 -0400
+Started GET "/cable" for ::1 at 2020-07-25 18:02:43 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:02:43 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:02:43 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1784)
+
+
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/cable" for ::1 at 2020-07-25 18:04:39 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:04:39 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/cable" for ::1 at 2020-07-25 18:04:41 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:04:41 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/cable" for ::1 at 2020-07-25 18:07:02 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:07:02 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription OnPostUpdated($id: ID!) {\n  postUpdated(id: $id) {\n    post {\n      id\n      title\n      body\n      __typename\n    }\n    __typename\n  }\n}\n", "variables"=>{"id"=>"1"}, "operationName"=>"OnPostUpdated"})
+GraphqlChannel#execute({"query"=>"subscription {\n  newPost {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "variables"=>{}, "operationName"=>nil})
+Started GET "/cable" for ::1 at 2020-07-25 18:07:02 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:07:02 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel is streaming from graphql-subscription:e30983c8-7b25-4708-b47c-919df86e5b29
+GraphqlChannel#execute({"query"=>"subscription OnPostUpdated($id: ID!) {\n  postUpdated(id: $id) {\n    post {\n      id\n      title\n      body\n      __typename\n    }\n    __typename\n  }\n}\n", "variables"=>{"id"=>"2"}, "operationName"=>"OnPostUpdated"})
+GraphqlChannel is streaming from graphql-subscription:f6be0574-153c-40ab-9574-bf8899c22758
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:42fb7108-86f9-441e-a69a-f93030aa9b9f
+GraphqlChannel is streaming from graphql-event::postUpdated:id:1
+GraphqlChannel is streaming from graphql-event::postUpdated:id:2
+GraphqlChannel#execute({"query"=>"subscription {\n  newPost {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "variables"=>{}, "operationName"=>nil})
+GraphqlChannel is streaming from graphql-event::newPost:
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:7b976ef6-792a-47c4-a1f5-078ad23220c0
+GraphqlChannel is streaming from graphql-event::newPost:
+Finished "/cable/" [WebSocket] for ::1 at 2020-07-25 18:07:09 -0400
+GraphqlChannel stopped streaming from graphql-subscription:42fb7108-86f9-441e-a69a-f93030aa9b9f
+GraphqlChannel stopped streaming from graphql-event::postUpdated:id:2
+GraphqlChannel stopped streaming from graphql-subscription:7b976ef6-792a-47c4-a1f5-078ad23220c0
+GraphqlChannel stopped streaming from graphql-event::newPost:
+Started GET "/cable" for ::1 at 2020-07-25 18:07:48 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 18:07:48 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started POST "/graphql" for ::1 at 2020-07-25 18:07:48 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "graphql"=>{"operationName"=>nil, "variables"=>{}, "query"=>"{\n  posts {\n    id\n    title\n    body\n    __typename\n  }\n}\n"}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 5406)
+
+
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription OnPostUpdated($id: ID!) {\n  postUpdated(id: $id) {\n    post {\n      id\n      title\n      body\n      __typename\n    }\n    __typename\n  }\n}\n", "variables"=>{"id"=>"2"}, "operationName"=>"OnPostUpdated"})
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7
+GraphqlChannel is streaming from graphql-event::postUpdated:id:2
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription {\n  newPost {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "variables"=>{}, "operationName"=>nil})
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::newPost:
+GraphqlChannel is streaming from graphql-subscription:93659ca0-c9b4-4ec4-aa61-c0b6e0019a68
+Started POST "/graphql" for ::1 at 2020-07-25 18:07:53 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"q"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 2858)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 18:07:54 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_post.rb:10:in `resolve'
+[ActionCable] Broadcasting to graphql-event::postUpdated:id:2: "{\"__gid__\":\"Z2lkOi8vcmFpbHMtZ3JhcGhxbC1jcnVkLWV4YW1wbGUvUG9zdC8y\"}"
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 3694)
+
+
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/subscriptions/post_updated.rb:12:in `update'
+[ActionCable] Broadcasting to graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7: {:result=>{"data"=>{"postUpdated"=>{"post"=>{"id"=>"2", "title"=>"asfsaddfads", "body"=>"asdfs", "__typename"=>"Post"}, "__typename"=>"PostUpdatedPayload"}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"postUpdated"=>{"post"=>{"id"=>"2", "title"=>"asfsaddfads", "body"=>"asdfs", "__typename"=>"Post"}, "__typename"=>"PostUpdatedPayload"}}}, "more"=>true} (via streamed from graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7)
+Started POST "/graphql" for ::1 at 2020-07-25 18:08:04 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asdfsdfasd\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"asdfsdfasd\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_post.rb:10:in `resolve'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "asdfsdfasd"], ["updated_at", "2020-07-25 22:08:04.088021"], ["id", 2]]
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+[ActionCable] Broadcasting to graphql-event::postUpdated:id:2: "{\"__gid__\":\"Z2lkOi8vcmFpbHMtZ3JhcGhxbC1jcnVkLWV4YW1wbGUvUG9zdC8y\"}"
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 13.4ms | Allocations: 6610)
+
+
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/subscriptions/post_updated.rb:12:in `update'
+[ActionCable] Broadcasting to graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7: {:result=>{"data"=>{"postUpdated"=>{"post"=>{"id"=>"2", "title"=>"asdfsdfasd", "body"=>"asdfs", "__typename"=>"Post"}, "__typename"=>"PostUpdatedPayload"}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"postUpdated"=>{"post"=>{"id"=>"2", "title"=>"asdfsdfasd", "body"=>"asdfs", "__typename"=>"Post"}, "__typename"=>"PostUpdatedPayload"}}}, "more"=>true} (via streamed from graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription {\n  newPost {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "variables"=>{}, "operationName"=>nil})
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::newPost:
+GraphqlChannel is streaming from graphql-subscription:6be376c0-856e-4514-8bef-cb12f92b3af1
+Started POST "/graphql" for ::1 at 2020-07-25 18:08:11 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"aaaa\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"2\", attributes: {title: \"aaaa\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"update"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_post.rb:10:in `resolve'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "aaaa"], ["updated_at", "2020-07-25 22:08:11.367642"], ["id", 2]]
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+[ActionCable] Broadcasting to graphql-event::postUpdated:id:2: "{\"__gid__\":\"Z2lkOi8vcmFpbHMtZ3JhcGhxbC1jcnVkLWV4YW1wbGUvUG9zdC8y\"}"
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 8.8ms | Allocations: 6523)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/graphql/subscriptions/post_updated.rb:12:in `update'
+[ActionCable] Broadcasting to graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7: {:result=>{"data"=>{"postUpdated"=>{"post"=>{"id"=>"2", "title"=>"aaaa", "body"=>"asdfs", "__typename"=>"Post"}, "__typename"=>"PostUpdatedPayload"}}}, :more=>true}
+GraphqlChannel transmitting {"result"=>{"data"=>{"postUpdated"=>{"post"=>{"id"=>"2", "title"=>"aaaa", "body"=>"asdfs", "__typename"=>"Post"}, "__typename"=>"PostUpdatedPayload"}}}, "more"=>true} (via streamed from graphql-subscription:8013ea27-4016-4ae6-9d02-a1087086adf7)
+GraphqlChannel is transmitting the subscription confirmation
+GraphqlChannel#execute({"query"=>"subscription {\n  newPost {\n    id\n    title\n    body\n    __typename\n  }\n}\n", "variables"=>{}, "operationName"=>nil})
+GraphqlChannel transmitting {:result=>{:data=>nil}, :more=>true}
+GraphqlChannel is streaming from graphql-event::newPost:
+GraphqlChannel is streaming from graphql-subscription:9d50890b-02de-46b7-82de-c5bb8f66b591

@@ -14,11 +14,11 @@ class GraphqlChannel < ApplicationCable::Channel
     }
 
     result = RailsGraphqlCrudExampleSchema.execute({
-                                             query: query,
-                                             context: context,
-                                             variables: variables,
-                                             operation_name: operation_name
-                                           })
+                                                     query: query,
+                                                     context: context,
+                                                     variables: variables,
+                                                     operation_name: operation_name
+                                                   })
 
     payload = {
       result: result.subscription? ? { data: nil } : result.to_h,
