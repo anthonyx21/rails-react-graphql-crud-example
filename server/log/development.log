@@ -619,3 +619,614 @@ Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:27:15 -0400
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 Subscription class not found: "GraphqlChannel"
 Subscription class not found: "GraphqlChannel"
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/graphiql" for ::1 at 2020-07-25 17:34:46 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 13.0ms | Allocations: 4543)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms | Allocations: 6645)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:34:46 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1052)
+
+
+  
+SyntaxError (/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/graphql/types/mutation_type.rb:3:in `<class:MutationType>'
+app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+app/graphql/types/mutation_type.rb:1:in `<main>'
+app/graphql/rails_graphql_crud_example_schema.rb:2:in `<class:RailsGraphqlCrudExampleSchema>'
+app/graphql/rails_graphql_crud_example_schema.rb:1:in `<main>'
+app/controllers/graphql_controller.rb:15:in `execute'
+Started POST "/graphql" for ::1 at 2020-07-25 17:34:46 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n  query IntrospectionQuery {\n    __schema {\n      queryType { name }\n      mutationType { name }\n      types {\n        ...FullType\n      }\n      directives {\n        name\n        description\n        locations\n        args {\n          ...InputValue\n        }\n      }\n    }\n  }\n\n  fragment FullType on __Type {\n    kind\n    name\n    description\n    fields(includeDeprecated: true) {\n      name\n      description\n      args {\n        ...InputValue\n      }\n      type {\n        ...TypeRef\n      }\n      isDeprecated\n      deprecationReason\n    }\n    inputFields {\n      ...InputValue\n    }\n    interfaces {\n      ...TypeRef\n    }\n    enumValues(includeDeprecated: true) {\n      name\n      description\n      isDeprecated\n      deprecationReason\n    }\n    possibleTypes {\n      ...TypeRef\n    }\n  }\n\n  fragment InputValue on __InputValue {\n    name\n    description\n    type { ...TypeRef }\n    defaultValue\n  }\n\n  fragment TypeRef on __Type {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n", "graphql"=>{"query"=>"\n  query IntrospectionQuery {\n    __schema {\n      queryType { name }\n      mutationType { name }\n      types {\n        ...FullType\n      }\n      directives {\n        name\n        description\n        locations\n        args {\n          ...InputValue\n        }\n      }\n    }\n  }\n\n  fragment FullType on __Type {\n    kind\n    name\n    description\n    fields(includeDeprecated: true) {\n      name\n      description\n      args {\n        ...InputValue\n      }\n      type {\n        ...TypeRef\n      }\n      isDeprecated\n      deprecationReason\n    }\n    inputFields {\n      ...InputValue\n    }\n    interfaces {\n      ...TypeRef\n    }\n    enumValues(includeDeprecated: true) {\n      name\n      description\n      isDeprecated\n      deprecationReason\n    }\n    possibleTypes {\n      ...TypeRef\n    }\n  }\n\n  fragment InputValue on __InputValue {\n    name\n    description\n    type { ...TypeRef }\n    defaultValue\n  }\n\n  fragment TypeRef on __Type {\n    kind\n    name\n    ofType {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 278)
+
+
+  
+SyntaxError (/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/graphql/types/mutation_type.rb:3:in `<class:MutationType>'
+app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+app/graphql/types/mutation_type.rb:1:in `<main>'
+app/graphql/rails_graphql_crud_example_schema.rb:2:in `<class:RailsGraphqlCrudExampleSchema>'
+app/graphql/rails_graphql_crud_example_schema.rb:1:in `<main>'
+app/controllers/graphql_controller.rb:15:in `execute'
+Started POST "/graphql" for ::1 at 2020-07-25 17:34:50 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 280)
+
+
+  
+SyntaxError (/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/graphql/mutations/create_post.rb:27: syntax error, unexpected end-of-input, expecting `end'
+app/graphql/types/mutation_type.rb:3:in `<class:MutationType>'
+app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+app/graphql/types/mutation_type.rb:1:in `<main>'
+app/graphql/rails_graphql_crud_example_schema.rb:2:in `<class:RailsGraphqlCrudExampleSchema>'
+app/graphql/rails_graphql_crud_example_schema.rb:1:in `<main>'
+app/controllers/graphql_controller.rb:15:in `execute'
+Started GET "/cable" for ::1 at 2020-07-25 17:34:51 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:34:51 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started POST "/graphql" for ::1 at 2020-07-25 17:35:26 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"po", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"po"}}
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3691)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:35:27 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1520)
+
+
+Started GET "/graphiql" for ::1 at 2020-07-25 17:35:30 -0400
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 1.8ms | Allocations: 1949)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 2388)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:35:30 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 200 OK in 28ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 17937)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:35:32 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1511)
+
+
+Started GET "/cable" for ::1 at 2020-07-25 17:35:33 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:35:33 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/cable" for ::1 at 2020-07-25 17:36:05 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:36:05 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started POST "/graphql" for ::1 at 2020-07-25 17:36:08 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+uninitialized constant Types::PostAttributes
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/update_post.rb:8:in `<class:UpdatePost>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/update_post.rb:4:in `<module:Mutations>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/update_post.rb:1:in `<main>'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/zeitwerk-2.4.0/lib/zeitwerk/kernel.rb:27:in `require'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/types/mutation_type.rb:3:in `<class:MutationType>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/types/mutation_type.rb:1:in `<main>'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/zeitwerk-2.4.0/lib/zeitwerk/kernel.rb:27:in `require'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/rails_graphql_crud_example_schema.rb:2:in `<class:RailsGraphqlCrudExampleSchema>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/rails_graphql_crud_example_schema.rb:1:in `<main>'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/zeitwerk-2.4.0/lib/zeitwerk/kernel.rb:27:in `require'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/controllers/graphql_controller.rb:15:in `execute'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/base.rb:195:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/callbacks.rb:101:in `run_callbacks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-6.0.3.2/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/base.rb:136:in `process'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal.rb:190:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal.rb:254:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:49:in `block in serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/etag.rb:27:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/conditional_get.rb:40:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-6.0.3.2/lib/active_record/migration.rb:567:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/callbacks.rb:101:in `run_callbacks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:37:in `call_app'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:26:in `block in call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:26:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/runtime.rb:22:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/static.rb:126:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/sendfile.rb:110:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-cors-1.1.1/lib/rack/cors.rb:100:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/engine.rb:527:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/configuration.rb:228:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:713:in `handle_request'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:472:in `process_client'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:328:in `block in run'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Completed 500 Internal Server Error in 5ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 3747)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:36:10 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+uninitialized constant Types::PostAttributes
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/update_post.rb:8:in `<class:UpdatePost>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/update_post.rb:4:in `<module:Mutations>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/update_post.rb:1:in `<main>'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/zeitwerk-2.4.0/lib/zeitwerk/kernel.rb:27:in `require'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/types/mutation_type.rb:3:in `<class:MutationType>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/types/mutation_type.rb:2:in `<module:Types>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/types/mutation_type.rb:1:in `<main>'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/zeitwerk-2.4.0/lib/zeitwerk/kernel.rb:27:in `require'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/rails_graphql_crud_example_schema.rb:2:in `<class:RailsGraphqlCrudExampleSchema>'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/rails_graphql_crud_example_schema.rb:1:in `<main>'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/bootsnap-1.4.7/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/zeitwerk-2.4.0/lib/zeitwerk/kernel.rb:27:in `require'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/controllers/graphql_controller.rb:15:in `execute'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/base.rb:195:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/callbacks.rb:101:in `run_callbacks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-6.0.3.2/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/base.rb:136:in `process'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal.rb:190:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal.rb:254:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:49:in `block in serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/etag.rb:27:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/conditional_get.rb:40:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-6.0.3.2/lib/active_record/migration.rb:567:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/callbacks.rb:101:in `run_callbacks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:37:in `call_app'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:26:in `block in call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:26:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/runtime.rb:22:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/static.rb:126:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/sendfile.rb:110:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-cors-1.1.1/lib/rack/cors.rb:100:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/engine.rb:527:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/configuration.rb:228:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:713:in `handle_request'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:472:in `process_client'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:328:in `block in run'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Completed 500 Internal Server Error in 4ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2643)
+
+
+Started GET "/cable" for ::1 at 2020-07-25 17:36:58 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:36:58 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:00 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 3911)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:06 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1604)
+
+
+Started GET "/graphiql" for ::1 at 2020-07-25 17:37:38 -0400
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 13.8ms | Allocations: 4520)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 6616)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:39 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 200 OK in 33ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 19623)
+
+
+Started GET "/graphiql" for ::1 at 2020-07-25 17:37:39 -0400
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 1.9ms | Allocations: 1933)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 2221)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:39 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 200 OK in 29ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 18958)
+
+
+Started GET "/graphiql" for ::1 at 2020-07-25 17:37:39 -0400
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 1.7ms | Allocations: 1933)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 2220)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:39 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 200 OK in 29ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 18954)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:41 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nsubscription b {\n  postUpdated(id: \"1\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1611)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:46 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"q"}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 6053)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:51 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"update", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"update"}}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/update_post.rb:10:in `resolve'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[36mPost Update (0.5ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "asfsaddfads"], ["body", "asdfs"], ["updated_at", "2020-07-25 21:37:51.388493"], ["id", 1]]
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/graphql/mutations/update_post.rb:11:in `resolve'
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 13.7ms | Allocations: 6357)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:37:53 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"create", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"create"}}
+uninitialized constant Mutations::CreatePost::User
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/graphql/mutations/create_post.rb:11:in `resolve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/resolver.rb:95:in `public_send'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/resolver.rb:95:in `block (3 levels) in resolve_with_support'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema.rb:112:in `after_lazy'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/resolver.rb:83:in `block (2 levels) in resolve_with_support'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema.rb:112:in `after_lazy'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/resolver.rb:76:in `block in resolve_with_support'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema.rb:112:in `after_lazy'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/resolver.rb:65:in `resolve_with_support'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/field.rb:684:in `public_send'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/field.rb:684:in `block in public_send_field'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/field.rb:720:in `with_extensions'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/field.rb:666:in `public_send_field'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/field.rb:579:in `block in resolve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema.rb:112:in `after_lazy'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema/field.rb:577:in `resolve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:224:in `block (5 levels) in evaluate_selections'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/tracing.rb:66:in `trace'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:223:in `block (4 levels) in evaluate_selections'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/query.rb:353:in `block in with_error_handling'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/errors.rb:30:in `with_error_handling'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/query.rb:352:in `with_error_handling'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:222:in `block (3 levels) in evaluate_selections'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:384:in `resolve_with_directives'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:219:in `block (2 levels) in evaluate_selections'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:459:in `after_lazy'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:177:in `block in evaluate_selections'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:124:in `each'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:124:in `evaluate_selections'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter/runtime.rb:60:in `run_eager'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter.rb:73:in `block in evaluate'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/tracing.rb:66:in `trace'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter.rb:72:in `evaluate'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/interpreter.rb:45:in `begin_query'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:112:in `begin_query'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:83:in `block in run_as_multiplex'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:82:in `map'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:82:in `run_as_multiplex'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:61:in `block (2 levels) in run_queries'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:195:in `block in instrument_and_analyze'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:29:in `block (2 levels) in apply_instrumenters'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:46:in `block (2 levels) in each_query_call_hooks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:41:in `each_query_call_hooks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:45:in `block in each_query_call_hooks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:72:in `call_hooks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:44:in `each_query_call_hooks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:27:in `block in apply_instrumenters'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:72:in `call_hooks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/instrumentation.rb:26:in `apply_instrumenters'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:174:in `instrument_and_analyze'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:60:in `block in run_queries'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/tracing.rb:66:in `trace'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:58:in `run_queries'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/execution/multiplex.rb:48:in `run_all'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema.rb:1642:in `multiplex'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphql-1.11.1/lib/graphql/schema.rb:1613:in `execute'
+/home/anthony/projects/experiments/rails-react-graphql-crud-example/server/app/controllers/graphql_controller.rb:15:in `execute'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/base.rb:195:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/callbacks.rb:101:in `run_callbacks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications.rb:180:in `block in instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/notifications.rb:180:in `instrument'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-6.0.3.2/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/abstract_controller/base.rb:136:in `process'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal.rb:190:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_controller/metal.rb:254:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:49:in `block in serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/routing/route_set.rb:834:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/etag.rb:27:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/conditional_get.rb:40:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-6.0.3.2/lib/active_record/migration.rb:567:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/callbacks.rb:101:in `run_callbacks'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:37:in `call_app'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:26:in `block in call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:80:in `block in tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:28:in `tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/tagged_logging.rb:80:in `tagged'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/rack/logger.rb:26:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/runtime.rb:22:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activesupport-6.0.3.2/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/static.rb:126:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/sendfile.rb:110:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/actionpack-6.0.3.2/lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-cors-1.1.1/lib/rack/cors.rb:100:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.2/lib/rails/engine.rb:527:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/configuration.rb:228:in `call'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:713:in `handle_request'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:472:in `process_client'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/server.rb:328:in `block in run'
+/home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/puma-4.3.5/lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Completed 500 Internal Server Error in 4ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 3907)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:38:31 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"create", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n", "variables"=>nil, "operationName"=>"create"}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/graphql/mutations/create_post.rb:12:in `resolve'
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "blue"], ["body", "bbb"], ["created_at", "2020-07-25 21:38:31.153062"], ["updated_at", "2020-07-25 21:38:31.153062"]]
+  ↳ app/graphql/mutations/create_post.rb:12:in `resolve'
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/graphql/mutations/create_post.rb:12:in `resolve'
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 8.7ms | Allocations: 10237)
+
+
+Started GET "/cable" for ::1 at 2020-07-25 17:38:38 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:38:38 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/cable" for ::1 at 2020-07-25 17:41:19 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:41:19 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started GET "/graphiql" for ::1 at 2020-07-25 17:41:21 -0400
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 14.0ms | Allocations: 4530)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 6631)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:41:21 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 200 OK in 36ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 22663)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:42:04 -0400
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    \n  }\n}", "variables"=>nil, "operationName"=>"delete", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    \n  }\n}", "variables"=>nil, "operationName"=>"delete"}}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2989)
+
+
+Started GET "/cable" for ::1 at 2020-07-25 17:42:12 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:42:12 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started POST "/graphql" for ::1 at 2020-07-25 17:42:21 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    \n  }\n}", "variables"=>nil, "operationName"=>"delete", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    \n  }\n}", "variables"=>nil, "operationName"=>"delete"}}
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2972)
+
+
+Started GET "/graphiql" for ::1 at 2020-07-25 17:42:23 -0400
+Processing by GraphiQL::Rails::EditorsController#show as HTML
+  Parameters: {"graphql_path"=>"/graphql"}
+  Rendering /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb
+  Rendered /home/anthony/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/graphiql-rails-1.7.0/app/views/graphiql/rails/editors/show.html.erb (Duration: 1.7ms | Allocations: 1934)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2371)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:42:23 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  ", "graphql"=>{"query"=>"\n    query IntrospectionQuery {\n      __schema {\n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}}
+Completed 200 OK in 32ms (Views: 3.5ms | ActiveRecord: 0.0ms | Allocations: 20119)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:42:23 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    \n  }\n}", "variables"=>nil, "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    \n  }\n}", "variables"=>nil}}
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 755)
+
+
+Started GET "/cable" for ::1 at 2020-07-25 17:42:30 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2020-07-25 17:42:30 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "GraphqlChannel"
+Subscription class not found: "GraphqlChannel"
+Started POST "/graphql" for ::1 at 2020-07-25 17:42:32 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"delete", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"delete"}}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/graphql/mutations/delete_post.rb:16:in `resolve'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/graphql/mutations/delete_post.rb:17:in `resolve'
+  [1m[36mPost Destroy (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  ↳ app/graphql/mutations/delete_post.rb:17:in `resolve'
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/graphql/mutations/delete_post.rb:17:in `resolve'
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 14.0ms | Allocations: 9301)
+
+
+Started POST "/graphql" for ::1 at 2020-07-25 17:42:42 -0400
+Processing by GraphqlController#execute as */*
+  Parameters: {"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"q", "graphql"=>{"query"=>"query q {\n  posts {\n    body\n    createdAt\n    title\n    id\n  }\n}\n\nquery po {\n  posts {\n    id\n    title\n    body\n  }\n}\n\nmutation update {\n  updatePost(id: \"1\", attributes: {title: \"asfsaddfads\", body: \"asdfs\"}) {\n    post {\n      id\n      title\n      updatedAt\n      body\n    }\n  }\n}\n\nmutation create {\n  createPost(title: \"blue\", body: \"bbb\") {\n    post {\n      title\n      body\n    }\n  }\n}\n\nmutation delete {\n  deletePost(id:1){\n    post{\n      id\n    }\n  }\n}", "variables"=>nil, "operationName"=>"q"}}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/controllers/graphql_controller.rb:15:in `execute'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 2856)
+
+
