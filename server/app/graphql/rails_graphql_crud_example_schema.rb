@@ -1,6 +1,8 @@
 class RailsGraphqlCrudExampleSchema < GraphQL::Schema
+  use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
   mutation(Types::MutationType)
   query(Types::QueryType)
+  subscription(Types::SubscriptionType)
 
   # Opt in to the new runtime (default in future graphql-ruby versions)
   use GraphQL::Execution::Interpreter
