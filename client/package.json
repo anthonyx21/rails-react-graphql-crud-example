@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "apollo-boost": "^0.4.9",
     "actioncable": "^5.2.4-3",
     "graphql": "^15.3.0",
